@@ -1,7 +1,12 @@
+// This code should be run in Stata 16 or 15
+
 *cd "/Path/To/1918_npi_effects/"
+
+version 16.1
 
 clear all
 set more off, permanently
+set emptycells drop
 
 use "data/output/all_city.dta" 
 
