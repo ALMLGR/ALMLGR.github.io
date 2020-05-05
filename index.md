@@ -8,6 +8,9 @@ Using data from 43 US cities, Correia, Luck, and Verner (2020) find that the 191
 
 [Data appendix](data_appendix.pdf)
 
+[SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3590008)
+
+
 ## Replication Package
 
 [Code and data](1918_npi_effects.zip)
