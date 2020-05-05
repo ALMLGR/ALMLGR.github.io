@@ -1,0 +1,23 @@
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Manufacturing Growth and Days of NPIs}
+\begin{tabular}{l*{4}{c}}
+\hline\hline
+                    &\multicolumn{1}{c}{(1)}   &\multicolumn{1}{c}{(2)}   &\multicolumn{1}{c}{(3)}   &\multicolumn{1}{c}{(4)}   \\
+                    &Manufacturing Output   &Manufacturing Output   &Manufacturing Output   &Manufacturing Output   \\
+\hline
+Post $\times$ NPI Days&     0.00199***&     0.00147** &     0.00062   &     0.00062   \\
+                    &   (0.00063)   &   (0.00066)   &   (0.00098)   &   (0.00092)   \\
+City Time Trends    &          No   &          No   &         Yes   &          No   \\
+Treatment by Year Trend &          No   &          No   &          No   &         Yes   \\
+Time FE             &         Yes   &         Yes   &         Yes   &         Yes   \\
+\hline
+City FE             &         Yes   &         Yes   &         Yes   &         Yes   \\
+R-squared           &      0.9162   &      0.9262   &      0.9785   &      0.9196   \\
+Cities              &          43   &          43   &          43   &          43   \\
+Observations        &         172   &         172   &         387   &         387   \\
+Pretrend P-value    &               &               &               &      0.3350   \\
+\hline\hline
+\multicolumn{5}{l}{\footnotesize * p<0.10, ** p<0.05, *** p<0.01}\\
+\end{tabular}
+\end{table}

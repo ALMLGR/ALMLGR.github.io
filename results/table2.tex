@@ -1,0 +1,23 @@
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Manufacturing Growth and Mortality}
+\begin{tabular}{l*{4}{c}}
+\hline\hline
+                    &\multicolumn{1}{c}{(1)}   &\multicolumn{1}{c}{(2)}   &\multicolumn{1}{c}{(3)}   &\multicolumn{1}{c}{(4)}   \\
+                    &Manufacturing Output   &Manufacturing Output   &Manufacturing Output   &Manufacturing Output   \\
+\hline
+Post $\times$ Mortality 1918&    -0.00028***&    -0.00027*  &     0.00013   &     0.00013   \\
+                    &   (0.00010)   &   (0.00014)   &   (0.00015)   &   (0.00014)   \\
+City Time Trends    &          No   &          No   &         Yes   &          No   \\
+Treatment by Year Trend &          No   &          No   &          No   &         Yes   \\
+Time FE             &         Yes   &         Yes   &         Yes   &         Yes   \\
+\hline
+City FE             &         Yes   &         Yes   &         Yes   &         Yes   \\
+R-squared           &      0.9103   &      0.9178   &      0.9785   &      0.9209   \\
+Cities              &          66   &          66   &          66   &          66   \\
+Observations        &         264   &         264   &         594   &         594   \\
+Trend P-value       &               &               &               &      0.0103   \\
+\hline\hline
+\multicolumn{5}{l}{\footnotesize * p<0.10, ** p<0.05, *** p<0.01}\\
+\end{tabular}
+\end{table}
