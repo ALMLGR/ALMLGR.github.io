@@ -12,7 +12,9 @@ The folder structure is organized as follows:
 		   (Builds the all_city.dta Stata file.)
 -----> analysis
 ---------- Analysis.do
+		   (Replicates the main results.)
 ---------- Paper_figures.R
+		   (Formats the figures as in replication paper)
 --> data
 -----> input
 		   (Raw input files digitized from historical sources.)
