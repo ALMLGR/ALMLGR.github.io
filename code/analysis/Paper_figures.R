@@ -2,7 +2,7 @@
 # Setup
 #############################
 
-root.path <- '/Path/To/1918_npi_effects'
+root.path <- '/Github/ALMLGR.github.io'
 
 required_packages <- c("ggplot2", "lmtest", "sandwich", "ggpubr", "data.table", "readstata13")         
 not_installed <- required_packages[!(required_packages %in% installed.packages()[ , "Package"])]    # Determine missing packages
@@ -128,7 +128,7 @@ rightPlotDays <- ggplot(all.city[! is.na(`Days of NPI`), ], aes(`Days of NPI`, p
   theme_bw(base_size = baseSize) +
   theme(legend.title = element_blank(), legend.position = "bottom") +
   xlab("Days of NPI") +
-  ylab("Log growth manuf. employment 1989-1914") 
+  ylab("Log growth manuf. employment 1899-1914") 
 
 leftPlotSpeed <- ggplot(all.city[! is.na(`Days of NPI`), ], aes(`Speed of NPI`, ManuGrowth1419, label=City)) + 
   geom_point(size = 2.5) + 
@@ -146,7 +146,7 @@ rightPlotSpeed <- ggplot(all.city[! is.na(`Days of NPI`), ], aes(`Speed of NPI`,
   theme_bw(base_size = baseSize) +
   theme(legend.title = element_blank(), legend.position = "bottom") +
   xlab("Speed of NPI") +
-  ylab("Log growth manuf. employment 1989-1914") 
+  ylab("Log growth manuf. employment 1899-1914") 
 
 ggarrange(leftPlotDays, rightPlotDays, leftPlotSpeed, rightPlotSpeed, ncol = 2, nrow = 2, common.legend = TRUE, legend="bottom")
 ggsave(paste0(root.path, "/results/figure3.pdf"), width = 15, height = 15)

@@ -1,7 +1,3 @@
-require(readstata13)
-require(data.table)
-root.path <- '/Path/To/Folder/1918_npi_effects'
-
 ################################################
 # Prepare state level data and export to Stata
 ################################################
