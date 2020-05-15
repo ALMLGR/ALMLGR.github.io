@@ -32,6 +32,70 @@ pointSize <- 3
 positionDodge <- 1
 
 ####################################################################################
+# Slides for HELP seminar
+####################################################################################
+all.city[, preManuGrowth := log(CityManuEmp1914/CityManuEmp1899)]
+baseSize <- 22
+slide1Left <- ggplot(all.city[! is.na(color)], aes(`Days of NPI`, log(ManuGrowth1419), label=City)) + 
+  geom_point(aes(color = color), size = 3.5) + 
+  geom_smooth(method =  "lm",data =  all.city[! is.na(color)], color = "gray", formula = 'y ~ x') + 
+  geom_text(color= "Black", nudge_y = .03) + 
+  scale_color_manual(values = c("Red", "Dark green")) +
+  theme_bw(base_size = baseSize) +
+  theme(legend.title = element_blank(), legend.position = "bottom", legend.box.background = NULL) +
+  theme(legend.key.size = unit(6,"point")) +
+  xlab("Days of NPI") +
+  ylab("Log growth manuf. employment 1914-1919") + 
+  ylim(-.1, 1.25) + 
+  xlim(0,200)
+
+slide1Right <- ggplot(all.city[! is.na(`Days of NPI`), ], aes(log(PopGrowth1017), log(ManuGrowth1419), label=City)) + 
+  geom_point(aes(color = color), size = 2.5) + 
+  geom_smooth(method =  "lm",data =  all.city[! is.na(`Days of NPI`), ], color = "gray", formula = 'y ~ x') + 
+  scale_color_manual(values = c("Red", "Dark green")) +
+  geom_text(color= "Black", nudge_y = .03) + 
+  theme_bw(base_size = baseSize) +
+  theme(legend.title = element_blank(), legend.position = "bottom", legend.box.background = NULL) +
+  ylim(-.1, 1.25) + 
+  xlab("Log population growth 1910-1917") + 
+  ylab("")
+
+ggarrange(slide1Left, slide1Right, ncol = 2, common.legend = TRUE, legend="bottom")
+ggsave("/Users/grinaldi/Dropbox/Apps/Overleaf/Spanish Flu Rebuttals/slide1.pdf", width = 12, height = 8)
+
+baseSize <- 32
+slide2Left <-  ggplot(all.city[! is.na(`Days of NPI`), ], aes(`Days of NPI`, preManuGrowth, label=City)) + 
+  geom_point(size = 2.5) + 
+  geom_smooth(method =  "lm",data =  all.city[! is.na(`Days of NPI`), ], color = "gray", formula = 'y ~ x') + 
+  geom_text(color= "Black", nudge_y = .05) + 
+  theme_bw(base_size = baseSize) +
+  theme(legend.title = element_blank(), legend.position = "bottom") +
+  xlab("Days of NPI") +
+  ylab("Log growth manuf. employment 1899-1914") 
+
+slide2Right <- ggplot(eventStudyPlot.npi, aes(Year, b, group = specification, color = specification)) + 
+  geom_errorbar(aes(ymin = min95, ymax = max95), width=1, position=position_dodge(positionDodge), size = lineSize) +
+  theme_bw(base_size = baseSize) + 
+  theme(legend.position = "bottom", legend.title = element_blank(), legend.box="Horizontal", legend.margin=margin(t = -1, unit='cm')) + 
+  guides(color=guide_legend(ncol=1,nrow=2,byrow=TRUE)) + # Make legend elements stacked veryically instead of horizontally
+  geom_point(position=position_dodge(positionDodge),  size = pointSize) + 
+  geom_line(position=position_dodge(positionDodge), size = lineSize) + 
+  scale_colour_manual(values = c("dark green", "dark blue")) + 
+  xlab("") + 
+  ylab("Coefficient Estimate") + 
+  geom_hline(yintercept = 0) + 
+  scale_x_continuous(breaks = c(1899, 1904, 1909, 1914, 1919, 1921, 1923, 1925, 1927), limits = c(1898, 1928)) +
+  theme(panel.grid.major.x = element_blank()) +
+  ggtitle("Log manufacturing employment on Days of NPI") +  
+  theme(plot.title = element_text(hjust = 0.5)) +  
+  theme(legend.text=element_text(size=24), 
+        legend.margin=margin(0,0,0,0)) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+ggarrange(slide2Left, slide2Right, ncol = 2, legend="bottom", widths = c(2.5, 3))
+ggsave("/Users/grinaldi/Dropbox/Apps/Overleaf/Spanish Flu Rebuttals/slide2.pdf", width = 24, height = 10)
+
+####################################################################################
 # Figure 1: relationship of population growth and manufacturing employment growth
 ####################################################################################
 
@@ -104,7 +168,6 @@ ggsave(paste0(root.path, "/results/figure2.pdf"), width = 15, height = 15)
 ################################################################################
 # Figure 3: Spurious correlation with pre pandemic growth
 ################################################################################
-all.city[, preManuGrowth := log(CityManuEmp1914/CityManuEmp1899)]
 
 lmfit <- lm(preManuGrowth ~ `Days of NPI`, all.city[! is.na(color), ])
 coeftest(lmfit, vcov = vcovHC(lmfit))
