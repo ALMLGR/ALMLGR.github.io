@@ -25,4 +25,3 @@ Using data from 43 US cities, Correia, Luck, and Verner (2020) finds that the 19
 ## Replication Package
 
 [Code and data](1918_npi_effects.zip)
-
