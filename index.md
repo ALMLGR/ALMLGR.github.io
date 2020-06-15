@@ -10,11 +10,17 @@ Using data from 43 US cities, Correia, Luck, and Verner (2020) finds that the 19
 
 [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3590008)
 
+[Original Paper](SSRN-id3561560_v1.pdf) by Correia, Luck and Verner (March 26)
+
+[Updated Paper](SSRN-id3561560_v2.pdf) by Correia, Luck and Verner (April 12)
+
 ## Comments
 
 [Response](CLV_response.pdf) by Correia, Luck and Verner (May 15)
 
 [Reply](LLR_response.pdf) by Lilley, Lilley and Rinaldi (May 19)
+
+[Amended paper](SSRN-id3561560_v3.pdf) by Correia, Luck and Verner (Jun 11)
 
 ## Replication Package
 
